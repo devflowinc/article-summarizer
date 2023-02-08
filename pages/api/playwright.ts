@@ -1,11 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import playwright from "playwright-core";
+import puppeteer from "puppeteer";
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   const { url } = req;
-  const browser = await playwright.chromium.launch({
+  const browser = await puppeteer.launch({
     headless: true // setting this to true will not run the ui
   });
 
@@ -20,15 +20,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const page = await browser.newPage();
     await page.goto(`https://terminal.hackernoon.com${slug}`);
 
-    await page.locator('pre').waitFor();
+    await page.waitForSelector('pre');
 
-    let text = await page.$eval('pre', pretag => {
-      return pretag.innerText;
+    let text = await page.evaluate(() => {
+      return document.querySelector("pre")?.innerText;
     });
 
     await browser.close();
 
-    text = text
+    text = text && text
       .replace(/(\r\n|\n|\r)/gm, "")
       .replace(/(\r\t|\t|\r)/gm, "");
 
@@ -37,6 +37,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log(error);
     res.status(500).json({ error: error });
   }
-
-
 }
