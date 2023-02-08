@@ -2,28 +2,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="mt-5 mb-3 flex h-16 w-full flex-col items-center justify-between space-y-3 px-3 pt-4 text-center text-slate-400 sm:mb-0 sm:h-20 sm:flex-row sm:px-6 sm:pt-2">
-      <div>
-        Powered by{" "}
-        <a
-          href="https://openai.com/"
-          target="_blank"
-          rel="noreferrer"
-          className="font-bold underline-offset-2 transition hover:text-slate-100 hover:underline"
-        >
-          OpenAI{" "}
-        </a>
-        and{" "}
-        <a
-          href="https://vercel.com/"
-          target="_blank"
-          rel="noreferrer"
-          className="font-bold underline-offset-2 transition hover:text-slate-100 hover:underline"
-        >
-          Vercel Edge Functions.
-        </a>
-      </div>
-      <div className="flex space-x-4 pb-4 sm:pb-0">
+    <footer className="flex h-16 w-full flex-col items-center justify-between space-y-3 px-3 py-6 text-center text-slate-400 sm:mb-0 sm:h-20 sm:flex-row sm:px-6">
+      <div className="flex space-x-4 pb-4 sm:pb-0 w-full justify-center items-center">
         <Link
           href="https://twitter.com/arguflow"
           className="group"

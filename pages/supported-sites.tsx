@@ -7,9 +7,9 @@ import {
 
 const SupportedSites = () => {
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-5xl flex-col justify-between pt-8 sm:pt-12">
+    <div className="mx-auto flex min-h-screen w-full max-w-5xl flex-col justify-between">
       <Header />
-      <main className="mx-auto mt-10 flex h-full max-w-5xl flex-1 flex-col justify-center px-2 sm:mt-40">
+      <main className="mx-auto flex h-screen-164 max-w-5xl flex-1 flex-col justify-center px-2">
         <h1 className="mb-6  text-center text-4xl font-bold sm:text-6xl">
           Supported sites
         </h1>

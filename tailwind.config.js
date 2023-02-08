@@ -16,20 +16,10 @@ module.exports = {
       animation: {
         'blink-1500': 'blink 1500ms ease-in-out infinite',
       },
+      height: {
+        'screen-164': 'calc(100vh - 164px)',
+      },
     },
   },
   plugins: [],
 }
-
-
-// @keyframes blink {
-//   0% {
-//     opacity: 1;
-//   }
-//   50% {
-//     opacity: 0;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }
