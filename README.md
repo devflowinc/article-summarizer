@@ -1,8 +1,8 @@
-# [summary.arguflow.com](https://www.summary.arguflow.com/)
+# [summary.arguflow.gg](https://www.summary.arguflow.gg/)
 
 This project summarizes articles for you using AI.
 
-[![Artucle Summary Tool](./public/screenshot.png)](https://www.techcrunchsummary.com)
+[![Artucle Summary Tool](./public/screenshot.png)](https://www.summary.arguflow.gg/)
 
 ## How it works
 
