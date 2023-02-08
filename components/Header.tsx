@@ -10,7 +10,7 @@ export default function Header() {
     <div className="flex items-center justify-between px-3 sm:px-3">
       <a
         className="flex items-center space-x-3"
-        href="https://www.techcrunchsummary.com"
+        href="https://www.summary.arguflow.gg"
       >
         <Image src="/edit.png" alt="logo" width={34} height={34} />
         <h2 className={clsx("text-lg sm:text-3xl", poppins.className)}>
@@ -18,7 +18,7 @@ export default function Header() {
         </h2>
       </a>
       <a
-        href="https://github.com/Nutlope/news-summarizer"
+        href="https://github.com/Arguflow/news-summarizer"
         rel="noreferrer noopener"
         target="_blank"
         className=""
