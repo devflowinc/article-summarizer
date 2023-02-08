@@ -3,7 +3,7 @@ import Document, { Head, Html, Main, NextScript } from "next/document";
 class MyDocument extends Document {
   render() {
     let description = "Summarize articles in seconds.";
-    let ogimage = "https://https://www.summary.arguflow.gg//og-image.png";
+    let ogimage = "https://arguflow.gg/logo_dark-13.webp";
     let sitename = "summary.arguflow.gg";
     let title = "Article Summarizer";
 
