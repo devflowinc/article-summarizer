@@ -26,11 +26,5 @@ After cloning the repo, go to [OpenAI](https://beta.openai.com/account/api-keys)
 Then, run the application in the command line and it will be available at `http://localhost:3000`.
 
 ```bash
-npm run dev
+yarn dev
 ```
-
-## One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/arguflow/article-summarizer&env=OPENAI_API_KEY&project-name=article-summarizer&repo-name=article-summarizer)
