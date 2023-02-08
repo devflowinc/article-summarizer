@@ -7,7 +7,7 @@ import {
 
 const SupportedSites = () => {
   return (
-    <div className="flex min-h-screen w-full max-w-5xl flex-col justify-between pt-8 sm:pt-12">
+    <div className="mx-auto flex min-h-screen w-full max-w-5xl flex-col justify-between pt-8 sm:pt-12">
       <Header />
       <main className="mx-auto mt-10 flex h-full max-w-5xl flex-1 flex-col justify-center px-2 sm:mt-40">
         <h1 className="mb-6  text-center text-4xl font-bold sm:text-6xl">
