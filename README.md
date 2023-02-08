@@ -4,7 +4,7 @@ This project summarizes articles for you using AI.
 
 Forked from [TechCrunchSummary.com](https://TechCrunchSummary.com)
 
-https://user-images.githubusercontent.com/15804464/217436774-b6c54a36-36f4-493b-838d-3c964e7890bd.mp4
+https://user-images.githubusercontent.com/15804464/217620078-e0f5ea76-4c28-47b5-9340-595bf40d2e8c.mp4
 
 ## How it works
 
