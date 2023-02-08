@@ -10,6 +10,15 @@ https://user-images.githubusercontent.com/15804464/217436774-b6c54a36-36f4-493b-
 
 This project uses the [OpenAI GPT-3 API](https://openai.com/api/) (specifically, text-davinci-003) and [Vercel Edge functions](https://vercel.com/features/edge-functions) with streaming. It fetches the content on a Techcrunch article, sends it in a prompt to the GPT-3 API to summarize it via a Vercel Edge function, then streams the response back to the application.
 
+### Feature List 
+
+Support for [8+ sites](https://summary.arguflow.gg/supported-sites)
+
+- [x] Summary in markdown format
+- [ ] Redis caching for popular articles
+- [ ] Feedback on quality of summaries 
+- [ ] Ability to copy prompt if you want to put it into ChatGPT yourself - maybe you're a premium user! 
+
 ## Running Locally
 
 After cloning the repo, go to [OpenAI](https://beta.openai.com/account/api-keys) to make an account and put your API key in a file called `.env`.
