@@ -2,6 +2,8 @@
 
 This project summarizes articles for you using AI.
 
+Forked from TechCrunchSummary.com[https://TechCrunchSummary.com]
+
 https://user-images.githubusercontent.com/15804464/217436774-b6c54a36-36f4-493b-838d-3c964e7890bd.mp4
 
 ## How it works
