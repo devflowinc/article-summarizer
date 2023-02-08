@@ -37,7 +37,7 @@ export default function Footer() {
           </svg>
         </Link>
         <Link
-          href="https://github.com/Arguflow/news-summarizer"
+          href="https://github.com/arguflow/article-summarizer"
           className="group"
           aria-label="Arguflow on GitHub"
         >

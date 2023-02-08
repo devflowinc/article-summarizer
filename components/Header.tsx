@@ -16,7 +16,7 @@ export default function Header() {
         </h2>
       </a>
       <a
-        href="https://github.com/Arguflow/news-summarizer"
+        href="https://github.com/arguflow/article-summarizer"
         rel="noreferrer noopener"
         target="_blank"
         className=""
