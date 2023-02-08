@@ -1,7 +1,25 @@
 import { useState, useEffect } from "react";
 
-export const supportedDomains: string[] = ["techcrunch.com", "hackernoon.com"];
-export const formattedSupportedDomains: string[] = ["TechCrunch", "HackerNoon"]
+export const supportedDomains: string[] = [
+  "techcrunch.com", 
+  "medium.com",
+  "plato.stanford.edu",
+  "wired.com",
+  "theverge.com",
+  "cnet.com",
+  "wikipedia.org",
+  "hackernoon.com",
+];
+export const formattedSupportedDomains: string[] = [
+  "TechCrunch", 
+  "Stanford Philosophy",
+  "Medium",
+  "Wired",
+  "TheVerge",
+  "Wikipedia",
+  "CNET",
+  "HackerNoon",
+]
 
 const SupportedSitesRewriter = () => {
   const [currentSupportedDomainIndex, setCurrentSupportedDomainIndex] =

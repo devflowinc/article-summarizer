@@ -10,8 +10,11 @@ if (!process.env.OPENAI_API_KEY) {
   throw new Error("Missing env var from OpenAI");
 }
 
-export default async function handler(req: Request) {
+export const replaceSpecialChars = (innerText: string) => {
+  return innerText.replace(/(\r\n|\n|\r)/gm, "").replace(/(\r\t|\t|\r)/gm, "");
+};
 
+export default async function handler(req: Request) {
   const { url } = (await req.json()) as {
     url?: string;
   };
@@ -31,20 +34,96 @@ export default async function handler(req: Request) {
 
       const root = parse(data);
       const body = root.querySelector(".article-content");
-      article = body!.innerText
-        .replace(/(\r\n|\n|\r)/gm, "")
-        .replace(/(\r\t|\t|\r)/gm, "");
-    } else if (url.includes("hackernoon")) {
+      article = replaceSpecialChars(body!.innerText);
+    } else if (url.includes("investopedia")) {
+      const response = await fetch(url, {
+        method: "GET",
+      });
+      const data = await response.text();
+
+      const root = parse(data);
+      const body = root.querySelector("#article_1-0");
+      article = replaceSpecialChars(body!.innerText);
+    } else if (url.includes("medium")) {
+      const response = await fetch(url, {
+        method: "GET",
+      });
+      const data = await response.text();
+
+      const root = parse(data);
+      const body = root.querySelector("section");
+      article = replaceSpecialChars(body!.innerText);
+    } else if (url.includes("plato.stanford")) {
+      const response = await fetch(
+        `${hostname}/api/get-text-content?url=${url}&parentIDSelector=aueditable&numberOfChildren=4`,
+        {
+          method: "GET",
+        }
+      );
+      const data = await response.json();
+      article = data.text as string;
+    } else if (url.includes("wired")) {
+      const response = await fetch(url, {
+        method: "GET",
+      });
+      const data = await response.text();
+
+      const root = parse(data);
+      const body = root.querySelector(
+        ".body__inner-container > :not(figure):not(img)"
+      );
+      article = replaceSpecialChars(body!.innerText);
+    } else if (url.includes("theverge")) {
+      const response = await fetch(url, {
+        method: "GET",
+      });
+      const data = await response.text();
+
+      const root = parse(data);
+      const body = root.querySelector(
+        "#content"
+      );
+      article = replaceSpecialChars(body!.innerText);
+    } else if (url.includes("cnet")) {
+      const response = await fetch(url, {
+        method: "GET",
+      });
+      const data = await response.text();
+
+      const root = parse(data);
+      const body = root.querySelector(
+        "#article-body"
+      );
+      article = replaceSpecialChars(body!.innerText);
+    } else if (url.includes("wikipedia")) {
+      const response = await fetch(url, {
+        method: "GET",
+      });
+      const data = await response.text();
+
+      const root = parse(data);
+      const body = root.querySelector(
+        ".mw-parser-output"
+      );
+      article = replaceSpecialChars(body!.innerText);
+    }  
+    
+    else if (url.includes("hackernoon")) {
       const response = await fetch(`${hostname}/api/playwright?url=${url}`, {
         method: "GET",
-      })
+      });
       const data = await response.json();
-      article = (data.text as string);
+      article = data.text as string;
     } else {
       return new Response("Unsupported site", { status: 500 });
     }
 
-    const pre_prompt = `I want you to act like a news article summarizer. I will input a news article and your job is to convert them into a useful summary of a few sentences. Do not repeat sentences and make sure all sentences are clear and complete:`;
+    // make sure the article is under 5000 characters
+    article = article.slice(0, 5000);
+
+    const pre_prompt =
+      "Summarize the following article/text starting with a markdown heading, focusing on the main points and arguments. The summary should be short and complete, ending with a conclusion or summarizing sentence. Please present the information using only headings and unordered lists in markdown format.\n\n";
+
     const prompt = pre_prompt + article;
 
     const payload = {
@@ -54,7 +133,7 @@ export default async function handler(req: Request) {
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
-      max_tokens: 200,
+      max_tokens: 400,
       stream: true,
       n: 1,
     };
