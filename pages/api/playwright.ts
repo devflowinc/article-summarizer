@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import playwright from "playwright";
+import playwright from "playwright-core";
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
