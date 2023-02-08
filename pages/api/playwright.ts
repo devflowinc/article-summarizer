@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { url } = req;
   const browser = await puppeteer.launch({
-    headless: true // setting this to true will not run the ui
+    headless: true, // setting this to true will not run the ui
   });
 
   if (!url) {
