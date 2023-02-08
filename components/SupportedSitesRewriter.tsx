@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const supportedDomains: string[] = [
-  "techcrunch.com", 
+  "techcrunch.com",
   "medium.com",
   "plato.stanford.edu",
   "wired.com",
@@ -11,13 +11,13 @@ export const supportedDomains: string[] = [
   "hackernoon.com",
 ];
 export const formattedSupportedDomains: string[] = [
-  "TechCrunch", 
-  "Stanford Philosophy",
+  "TechCrunch",
   "Medium",
+  "Stanford Philosophy",
   "Wired",
   "TheVerge",
-  "Wikipedia",
   "CNET",
+  "Wikipedia",
   "HackerNoon",
 ]
 
