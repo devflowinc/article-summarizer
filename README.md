@@ -1,4 +1,4 @@
-# [summary.arguflow.gg](https://www.summary.arguflow.gg/)
+# [summary.arguflow.gg](https://summary.arguflow.gg/)
 
 This project summarizes articles for you using AI.
 
