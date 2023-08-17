@@ -160,7 +160,7 @@ export const Home: NextPage = () => {
           >
             Search
           </a>
-          , a demo of Arguflow's AI infrastructure offering for a debate use
+          , a demo of Arguflow's AI infrastructure suite for a debate use
           case
         </div>
       </div>
