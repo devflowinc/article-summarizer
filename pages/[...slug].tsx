@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-html-link-for-pages */
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -21,7 +22,10 @@ import BlogImage from "../components/Blog/MarkdownComponents/Image/Image";
 import { useRouter } from "next/router";
 
 const isSupportedDomain = (url: string) => {
-  return url.startsWith("https://") && supportedDomains.some((domain) => url.includes(domain));
+  return (
+    url.startsWith("https://") &&
+    supportedDomains.some((domain) => url.includes(domain))
+  );
 };
 
 export const Home: NextPage = () => {
@@ -122,114 +126,153 @@ export const Home: NextPage = () => {
   }, [curArticle, generateSummary, router.isReady, router.query.slug]);
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-5xl flex-col">
-      <Header />
-      <main className="mx-auto flex h-screen-164 max-w-5xl flex-1 flex-col justify-center px-2">
-        <h1 className="max-w-5xl text-center text-4xl font-bold sm:text-7xl">
-          <span className="block"> Summarize articles from </span>
-          <span className="relative block whitespace-nowrap text-[#3290EE]">
-            <span className="relative text-green-500">
-              <SupportedSitesRewriter />
-            </span>
-          </span>{" "}
-          article with AI
-        </h1>
-        <p className="mt-10 text-center text-lg text-gray-500 sm:text-2xl">
-          Copy and paste any{" "}
+    <>
+      <div
+        className="card py-3 font-semibold"
+        style={{
+          margin: "0px",
+          position: "relative",
+          width: "100%",
+          color: "blue",
+          backgroundColor: "yellow",
+          justifyContent: "center",
+          textAlign: "center",
+          fontSize: "20px",
+          flex: "1 1 0%",
+          backgroundImage:
+            "linear-gradient(59deg, rgb(163, 62, 181) 0%, rgb(0, 221, 231) 100%)",
+        }}
+      >
+        <div className="p-2" style={{ color: "white" }}>
+          Check out{" "}
           <a
-            href="/supported-sites"
-            className="text-green-500 underline"
-            aria-label="Supported Pages"
+            className="font-bold underline"
+            href="https://chat.arguflow.ai"
+            style={{ color: "rgb(211, 255, 25)" }}
           >
-            supported{" "}
+            Chat
+          </a>{" "}
+          and{" "}
+          <a
+            className="font-bold underline"
+            href="https://search.arguflow.ai"
+            style={{ color: "rgb(211, 255, 25)" }}
+          >
+            Search
           </a>
-          article link below.
-        </p>
-        <input
-          type="text"
-          value={curArticle}
-          onChange={(e) => setCurArticle(e.target.value)}
-          className="mx-auto mt-10 w-full rounded-lg border border-gray-500 bg-black p-3 outline-1 outline-white sm:mt-7 sm:w-3/4"
-        />
-        {!loading && (
-          <button
-            type="submit"
-            className="z-10 mx-auto mt-7 w-3/4 rounded-2xl border-gray-500 bg-green-500 p-3 text-lg font-medium transition hover:bg-green-400 sm:mt-10 sm:w-1/3"
-            onClick={() => generateSummary()}
-          >
-            Summarize
-          </button>
-        )}
-        {loading && (
-          <button
-            className="z-10 mx-auto mt-7 w-3/4 cursor-not-allowed rounded-2xl border-gray-500 bg-green-500 p-3 text-lg font-medium transition hover:bg-green-400 sm:mt-10 sm:w-1/3"
-            disabled
-          >
-            <div className="flex items-center justify-center text-white">
-              <Image
-                src="/loading.svg"
-                alt="Loading..."
-                width={28}
-                height={28}
-              />
-            </div>
-          </button>
-        )}
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-          toastOptions={{ duration: 2000 }}
-        />
-        {summary && (
-          <div className="mb-10 min-h-[75vh] px-4">
-            <h2 className="mx-auto mt-16 max-w-3xl border-t border-gray-600 pt-8 text-center text-3xl font-bold sm:text-5xl">
-              Summary
-            </h2>
-            <div className="mx-auto mt-6 max-w-3xl text-lg leading-7">
-              <ReactMarkdown
-                components={{
-                  h1: HeadingOne,
-                  h2: HeadingTwo,
-                  h3: HeadingThree,
-                  h4: HeadingFour,
-                  h5: HeadingFive,
-                  h6: HeadingSix,
-                  a: (props) => (
-                    <Anchor href={props.href} body={props.children} />
-                  ),
-                  ul: (props) => (
-                    <ul className="ml-8 list-disc text-lg text-white">
-                      {props.children}
-                    </ul>
-                  ),
-                  ol: (props) => (
-                    <ol className="ml-8 list-decimal text-lg text-white">
-                      {props.children}
-                    </ol>
-                  ),
-                  li: (props) => (
-                    <li className="text-lg text-white">{props.children}</li>
-                  ),
-                  img: (props) => (
-                    <BlogImage src={props.src} about={props.alt} />
-                  ),
-                  p: (props) => (
-                    <div className="my-2 text-lg text-white">
-                      {props.children}
-                    </div>
-                  ),
-                }}
-              >
-                {summary}
-              </ReactMarkdown>
-            </div>
-          </div>
-        )}
-      </main>
-      <div ref={summaryRef}>
-        <Footer />
+          , a demo of Arguflow's AI infrastructure offering for a debate use
+          case
+        </div>
       </div>
-    </div>
+      <div className="mx-auto flex min-h-screen max-w-5xl flex-col">
+        <Header />
+        <main className="mx-auto flex h-screen-164 max-w-5xl flex-1 flex-col justify-center px-2">
+          <h1 className="max-w-5xl text-center text-4xl font-bold sm:text-7xl">
+            <span className="block"> Summarize articles from </span>
+            <span className="relative block whitespace-nowrap text-[#3290EE]">
+              <span className="relative text-green-500">
+                <SupportedSitesRewriter />
+              </span>
+            </span>{" "}
+            article with AI
+          </h1>
+          <p className="mt-10 text-center text-lg text-gray-500 sm:text-2xl">
+            Copy and paste any{" "}
+            <a
+              href="/supported-sites"
+              className="text-green-500 underline"
+              aria-label="Supported Pages"
+            >
+              supported{" "}
+            </a>
+            article link below.
+          </p>
+          <input
+            type="text"
+            value={curArticle}
+            onChange={(e) => setCurArticle(e.target.value)}
+            className="mx-auto mt-10 w-full rounded-lg border border-gray-500 bg-black p-3 outline-1 outline-white sm:mt-7 sm:w-3/4"
+          />
+          {!loading && (
+            <button
+              type="submit"
+              className="z-10 mx-auto mt-7 w-3/4 rounded-2xl border-gray-500 bg-green-500 p-3 text-lg font-medium transition hover:bg-green-400 sm:mt-10 sm:w-1/3"
+              onClick={() => generateSummary()}
+            >
+              Summarize
+            </button>
+          )}
+          {loading && (
+            <button
+              className="z-10 mx-auto mt-7 w-3/4 cursor-not-allowed rounded-2xl border-gray-500 bg-green-500 p-3 text-lg font-medium transition hover:bg-green-400 sm:mt-10 sm:w-1/3"
+              disabled
+            >
+              <div className="flex items-center justify-center text-white">
+                <Image
+                  src="/loading.svg"
+                  alt="Loading..."
+                  width={28}
+                  height={28}
+                />
+              </div>
+            </button>
+          )}
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{ duration: 2000 }}
+          />
+          {summary && (
+            <div className="mb-10 min-h-[75vh] px-4">
+              <h2 className="mx-auto mt-16 max-w-3xl border-t border-gray-600 pt-8 text-center text-3xl font-bold sm:text-5xl">
+                Summary
+              </h2>
+              <div className="mx-auto mt-6 max-w-3xl text-lg leading-7">
+                <ReactMarkdown
+                  components={{
+                    h1: HeadingOne,
+                    h2: HeadingTwo,
+                    h3: HeadingThree,
+                    h4: HeadingFour,
+                    h5: HeadingFive,
+                    h6: HeadingSix,
+                    a: (props) => (
+                      <Anchor href={props.href} body={props.children} />
+                    ),
+                    ul: (props) => (
+                      <ul className="ml-8 list-disc text-lg text-white">
+                        {props.children}
+                      </ul>
+                    ),
+                    ol: (props) => (
+                      <ol className="ml-8 list-decimal text-lg text-white">
+                        {props.children}
+                      </ol>
+                    ),
+                    li: (props) => (
+                      <li className="text-lg text-white">{props.children}</li>
+                    ),
+                    img: (props) => (
+                      <BlogImage src={props.src} about={props.alt} />
+                    ),
+                    p: (props) => (
+                      <div className="my-2 text-lg text-white">
+                        {props.children}
+                      </div>
+                    ),
+                  }}
+                >
+                  {summary}
+                </ReactMarkdown>
+              </div>
+            </div>
+          )}
+        </main>
+        <div ref={summaryRef}>
+          <Footer />
+        </div>
+      </div>
+    </>
   );
 };
 
