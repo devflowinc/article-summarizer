@@ -127,43 +127,6 @@ export const Home: NextPage = () => {
 
   return (
     <>
-      <div
-        className="card py-3 font-semibold"
-        style={{
-          margin: "0px",
-          position: "relative",
-          width: "100%",
-          color: "blue",
-          backgroundColor: "yellow",
-          justifyContent: "center",
-          textAlign: "center",
-          fontSize: "20px",
-          flex: "1 1 0%",
-          backgroundImage:
-            "linear-gradient(59deg, rgb(163, 62, 181) 0%, rgb(0, 221, 231) 100%)",
-        }}
-      >
-        <div className="p-2" style={{ color: "white" }}>
-          Check out{" "}
-          <a
-            className="font-bold underline"
-            href="https://chat.arguflow.ai"
-            style={{ color: "rgb(211, 255, 25)" }}
-          >
-            Chat
-          </a>{" "}
-          and{" "}
-          <a
-            className="font-bold underline"
-            href="https://search.arguflow.ai"
-            style={{ color: "rgb(211, 255, 25)" }}
-          >
-            Search
-          </a>
-          , a demo of Arguflow's AI infrastructure suite for a debate use
-          case
-        </div>
-      </div>
       <div className="mx-auto flex min-h-screen max-w-5xl flex-col">
         <Header />
         <main className="mx-auto flex h-screen-164 max-w-5xl flex-1 flex-col justify-center px-2">
